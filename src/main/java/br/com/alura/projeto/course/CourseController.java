@@ -1,41 +1,77 @@
 package br.com.alura.projeto.course;
 
+import br.com.alura.projeto.category.CategoryDTO;
+import br.com.alura.projeto.category.CategoryRepository;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
 @Controller
 public class CourseController {
 
-    @GetMapping("/admin/courses")
-    public String list(@Valid NewCourseForm form) {
-        // TODO: Implementar a Questão 1 - Listagem de Cursos aqui...
+    private final CourseRepository courseRepository;
+    private final CategoryRepository categoryRepository;
 
-        return "";
+    public CourseController(CourseRepository courseRepository, CategoryRepository categoryRepository) {
+        this.courseRepository = courseRepository;
+        this.categoryRepository = categoryRepository;
+    }
+
+    @GetMapping("/admin/courses")
+    public String list(Model model) {
+        List<CourseDTO> courses = courseRepository.findAll()
+                .stream()
+                .map(CourseDTO::new)
+                .toList();
+
+        model.addAttribute("courses", courses);
+
+        return "admin/course/list";
     }
 
     @GetMapping("/admin/course/new")
-    public String create(NewCourseForm form) {
-        // TODO: Implementar a Questão 1 - Cadastro de Cursos aqui...
+    public String create(NewCourseForm form, Model model) {
+        // categorias para o dropdown
+        List<CategoryDTO> categories = categoryRepository.findAll()
+                .stream()
+                .map(CategoryDTO::new)
+                .toList();
 
-        return "";
+        model.addAttribute("categories", categories);
+
+        return "admin/course/newForm";
     }
 
+    @Transactional
     @PostMapping("/admin/course/new")
-    public String save(@Valid NewCourseForm form) {
-        // TODO: Implementar a Questão 1 - Cadastro de Cursos aqui...
+    public String save(@Valid NewCourseForm form, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return create(form, model);
+        }
 
-        return "";
+        if (courseRepository.existsByCode(form.getCode())) {
+            result.rejectValue("code", "Duplicate.code", "Já existe um curso com este código");
+            return create(form, model);
+        }
+
+        Course course = form.toModel(categoryRepository);
+        courseRepository.save(course);
+
+        return "redirect:/admin/courses";
     }
 
     @PostMapping("/course/{code}/inactive")
     public ResponseEntity<?> updateStatus(@PathVariable("code") String courseCode) {
-        // TODO: Implementar a Questão 2 - Inativação de Curso aqui...
+        // TODO: Implementar a Inativação de Curso
 
         return ResponseEntity.ok().build();
     }
-
 }
