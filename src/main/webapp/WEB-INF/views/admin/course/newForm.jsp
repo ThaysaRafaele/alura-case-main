@@ -80,9 +80,9 @@
                                 required>
                             <option value="">Selecione uma categoria...</option>
                             <c:forEach var="category" items="${categories}">
-                                <option value="${category.id}" 
-                                        ${param.categoryId == category.id ? 'selected' : ''}>
-                                    ${category.name}
+                                <option value="${category.id()}" 
+                                        ${param.categoryId == category.id() ? 'selected' : ''}>
+                                    ${category.name()}
                                 </option>
                             </c:forEach>
                         </select>

@@ -40,14 +40,14 @@
                     <tbody>
                         <c:forEach var="course" items="${courses}">
                             <tr>
-                                <td>${course.id}</td>
-                                <td>${course.name}</td>
-                                <td><code>${course.code}</code></td>
-                                <td>${course.instructorEmail}</td>
-                                <td>${course.categoryName}</td>
+                                <td>${course.id()}</td>
+                                <td>${course.name()}</td>
+                                <td><code>${course.code()}</code></td>
+                                <td>${course.instructorEmail()}</td>
+                                <td>${course.categoryName()}</td>
                                 <td>
                                     <c:choose>
-                                        <c:when test="${course.status == 'ACTIVE'}">
+                                        <c:when test="${course.status() == 'ACTIVE'}">
                                             <span class="badge bg-success">Ativo</span>
                                         </c:when>
                                         <c:otherwise>
@@ -55,10 +55,10 @@
                                         </c:otherwise>
                                     </c:choose>
                                 </td>
-                                <td>${course.inactivationDate}</td>
+                                <td>${course.inactivationDate()}</td>
                                 <td>
-                                    <c:if test="${course.status == 'ACTIVE'}">
-                                        <form action="/course/${course.code}/inactive" method="post" style="display: inline;">
+                                    <c:if test="${course.status() == 'ACTIVE'}">
+                                        <form action="/course/${course.code()}/inactive" method="post" style="display: inline;">
                                             <button type="submit" class="btn btn-sm btn-warning" 
                                                     onclick="return confirm('Deseja realmente inativar este curso?')">
                                                 Inativar
