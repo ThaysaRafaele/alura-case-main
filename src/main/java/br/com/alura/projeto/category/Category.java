@@ -33,7 +33,8 @@ public class Category {
     private LocalDateTime createdAt = LocalDateTime.now();
 
     @Deprecated
-    public Category() {}
+    public Category() {
+    }
 
     public Category(String name, String code, String color, int order) {
         this.name = name;
@@ -60,5 +61,21 @@ public class Category {
 
     public String getCode() {
         return code;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public void setOrder(int order) {
+        this.order = order;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }
