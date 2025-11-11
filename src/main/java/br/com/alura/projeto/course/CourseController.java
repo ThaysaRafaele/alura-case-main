@@ -14,6 +14,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
+/**
+ * Controller responsável pelas operações de Curso.
+ * 
+ * Endpoints:
+ * - GET /course/new - Formulário de cadastro
+ * - POST /course/new - Salvar novo curso
+ * - GET /course/{code}/edit - Formulário de edição
+ * - POST /course/{code}/edit - Atualizar curso
+ * - POST /course/{code}/inactive - Inativar curso
+ * - POST /course/{code}/reactivate - Reativar curso
+ * 
+ * @author Thaysa Rafaele
+ * @since 09-11-2025
+ */
 @Controller
 public class CourseController {
 

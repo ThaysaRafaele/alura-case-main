@@ -8,6 +8,17 @@ import org.hibernate.validator.constraints.Length;
 
 import java.time.LocalDateTime;
 
+/**
+ * Representa um Curso na plataforma.
+ * 
+ * Características principais:
+ * - Soft delete via Status enum (mantém histórico)
+ * - Relacionamento - muitos para 1 - com Category
+ * - Registro de data de inativação para auditoria
+ * 
+ * @author Thaysa Rafaele
+ * @since 09-11-2025
+ */
 @Entity
 public class Category {
 

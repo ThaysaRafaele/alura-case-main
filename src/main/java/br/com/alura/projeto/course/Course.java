@@ -8,6 +8,16 @@ import org.hibernate.validator.constraints.Length;
 
 import java.time.LocalDateTime;
 
+/**
+ * Representa uma Categoria de cursos.
+ * 
+ * Características principais:
+ * - Categorias organizam os cursos na página inicial
+ * e definem cores para identificação visual.
+ * 
+ * @author Thaysa Rafaele
+ * @since 09-11-2025
+ */
 @Entity
 public class Course {
 
