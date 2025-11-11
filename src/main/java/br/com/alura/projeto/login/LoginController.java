@@ -29,7 +29,6 @@ public class LoginController {
 
         List<CategoryWithCoursesDTO> categoriesWithCourses = categories.stream()
                 .map(category -> {
-                    // busca cursos ativos
                     List<String> courseNames = courseRepository
                             .findByCategoryIdAndStatus(category.getId(), Status.ACTIVE)
                             .stream()

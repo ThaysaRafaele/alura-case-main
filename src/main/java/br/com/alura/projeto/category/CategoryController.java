@@ -85,7 +85,6 @@ public class CategoryController {
         Category category = categoryRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Categoria não encontrada"));
 
-        // código já existe em outra categoria?
         categoryRepository.findAll().stream()
                 .filter(c -> !c.getId().equals(id))
                 .filter(c -> c.getCode().equals(form.getCode()))

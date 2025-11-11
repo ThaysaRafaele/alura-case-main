@@ -37,7 +37,6 @@ public class EditCourseForm {
         course.setDescription(this.description);
     }
 
-    // Getters e Setters
     public String getName() {
         return name;
     }
