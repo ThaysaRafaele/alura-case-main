@@ -99,4 +99,31 @@ public class Course {
     public Category getCategory() {
         return category;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public void setInstructorEmail(String instructorEmail) {
+        this.instructorEmail = instructorEmail;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void reactivate() {
+        if (this.status == Status.INACTIVE) {
+            this.status = Status.ACTIVE;
+            this.inactivationDate = null;
+        }
+    }
 }
