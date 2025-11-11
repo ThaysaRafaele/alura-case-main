@@ -41,6 +41,7 @@ public class Category {
         this.code = code;
         this.color = color;
         this.order = order;
+        this.createdAt = LocalDateTime.now();
     }
 
     public Long getId() {

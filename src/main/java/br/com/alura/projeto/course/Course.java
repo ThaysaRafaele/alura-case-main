@@ -50,13 +50,14 @@ public class Course {
     public Course() {
     }
 
-    public Course(String name, String code, String instructorEmail, String description, Category category) {
+    public Course(String name, String code, String instructorEmail, Category category, String description) {
         this.name = name;
         this.code = code;
         this.instructorEmail = instructorEmail;
-        this.description = description;
         this.category = category;
+        this.description = description;
         this.status = Status.ACTIVE;
+        this.createdAt = LocalDateTime.now();
     }
 
     public void inactivate() {
