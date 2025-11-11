@@ -58,9 +58,10 @@
                                 <td>${course.inactivationDate()}</td>
                                 <td>
                                     <c:if test="${course.status() == 'ACTIVE'}">
-                                        <form action="/course/${course.code()}/inactive" method="post" style="display: inline;">
-                                            <button type="submit" class="btn btn-sm btn-warning" 
-                                                    onclick="return confirm('Deseja realmente inativar este curso?')">
+                                        <form action="/course/${course.code()}/inactive" method="post" 
+                                              style="display: inline;" 
+                                              onsubmit="return handleInactivate(event, this)">
+                                            <button type="submit" class="btn btn-sm btn-warning">
                                                 Inativar
                                             </button>
                                         </form>
@@ -79,5 +80,34 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+    function handleInactivate(event, form) {
+        if (confirm('Deseja realmente inativar este curso?')) {
+            event.preventDefault();
+            
+            fetch(form.action, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    window.location.reload();
+                } else {
+                    alert('Erro ao inativar o curso. Tente novamente.');
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                alert('Erro ao inativar o curso. Tente novamente.');
+            });
+            
+            return false;
+        }
+        return false;
+    }
+    </script>
 </body>
 </html>
