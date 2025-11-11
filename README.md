@@ -112,3 +112,23 @@ Agora que temos usuários e matrículas, queremos gerar um relatório para ident
 
 > [!TIP]
 > Para uma melhor organização dos commits, considere seguir as [convenções de commits](https://www.conventionalcommits.org/pt-br/v1.0.0/). Isso ajuda a manter um histórico claro e compreensível do projeto.
+>
+
+#### Imagem do projeto rodando em localhost:
+<img width="1909" height="965" alt="image" src="https://github.com/user-attachments/assets/0bed835e-3c79-40f3-88fc-a90021961ea3" />
+
+- Listando categorias:
+<img width="1637" height="730" alt="image" src="https://github.com/user-attachments/assets/c7ebd88b-d6c9-495c-8f71-ed21e6d80e92" />
+
+- Criando / Editando Categorias
+<img width="1524" height="746" alt="image" src="https://github.com/user-attachments/assets/62aef115-6d7f-49f7-96cc-8e8ef98ee61e" />
+<img width="1493" height="699" alt="image" src="https://github.com/user-attachments/assets/44acd593-8b6e-411d-ad2b-3a2155326dac" />
+
+- Listando Cursos
+<img width="1493" height="657" alt="image" src="https://github.com/user-attachments/assets/ee4e19f3-268e-4a86-b6d6-3dc895ebae37" />
+
+- Criando / Editando Cursos
+<img width="1490" height="813" alt="image" src="https://github.com/user-attachments/assets/6657d76d-1fca-4c51-8de3-a4549430f17c" />
+<img width="1486" height="815" alt="image" src="https://github.com/user-attachments/assets/43aaa8d3-c6d6-4687-8d44-9ec8d67d5842" />
+
+
