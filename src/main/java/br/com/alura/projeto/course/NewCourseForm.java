@@ -35,7 +35,7 @@ public class NewCourseForm {
         Category category = categoryRepository.findById(categoryId)
                 .orElseThrow(() -> new IllegalArgumentException("Categoria não encontrada"));
 
-        return new Course(name, code, instructorEmail, description, category);
+        return new Course(name, code, instructorEmail, category, description);
     }
 
     public String getName() {
