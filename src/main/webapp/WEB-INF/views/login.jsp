@@ -23,7 +23,11 @@
             <div class="grid">
                 <c:forEach var="category" items="${categories}">
                     <div class="card" style="--card-color: ${category.color()}">
-                        <div class="card-icon">${category.code().substring(0, 1).toUpperCase()}</div>
+                        <div class="card-icon">
+                            <img src="${category.getIconPath()}" 
+                                 alt="${category.name()}" 
+                                 onerror="this.style.display='none'; this.parentNode.innerHTML='${category.code().substring(0, 1).toUpperCase()}'">
+                        </div>
                         <h3>${category.name()}</h3>
                         <p>${category.getCoursesDescription()}</p>
                     </div>
